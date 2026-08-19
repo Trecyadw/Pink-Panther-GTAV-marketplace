@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  min-height: 100%;
+  background: #050505;
+  color: #f5f5f5;
+}
+
+body {
+  position: relative;
+  overflow-x: hidden;
+  /* Animasi background warna hitam-pink */
+  background: linear-gradient(-45deg, #000000, #2c0814, #F06292, #000000, #17040a);
+  background-size: 400% 400%;
+  animation: gradientBG 12s ease infinite;
+  background-attachment: fixed;
+}
+
+.gif-bg-img {
+  display: none;
+}
+
+.gif-bg-img {
+  display: none;
+}
+
+.moving-lights {
+  z-index: 1;
+  /* Lampu sorot diubah menjadi variasi warna Pink Panther */
+  background:
+    linear-gradient(115deg, transparent 0%, rgba(240, 98, 146, 0.25) 22%, transparent 44%),
+    linear-gradient(65deg, transparent 0%, rgba(255, 128, 171, 0.20) 26%, transparent 48%),
+    linear-gradient(145deg, transparent 0%, rgba(216, 27, 96, 0.25) 22%, transparent 42%);
+  background-size: 180% 180%, 180% 180%, 200% 200%;
+  animation: sweep-lights 7s linear infinite;
+  mix-blend-mode: screen;
+}
+
+.moving-grid {
+  z-index: 2;
+  opacity: 0.16;
+  /* Garis grid diberi sentuhan pink tipis */
+  background-image:
+    linear-gradient(rgba(240, 98, 146, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 98, 146, 0.25) 1px, transparent 1px);
+  background-size: 54px 54px;
+  transform-origin: center;
+  animation: grid-slide 5.5s linear infinite;
+}
+
+.gif-overlay {
+  z-index: 3;
+  background:
+    radial-gradient(circle at center, rgba(0,0,0,0.18) 0%, rgba(0,0,0,0.50) 58%, rgba(0,0,0,0.72) 100%);
+}
+
+.card {
+  @apply rounded-3xl border border-zinc-800 bg-black/70 shadow-lg backdrop-blur;
+}
+
+.btn-primary {
+  /* Tombol utama diubah ke Pink Shade 300 dengan efek glow saat di-hover */
+  @apply rounded-xl bg-[#F06292] px-4 py-2 font-semibold text-white transition-all hover:bg-[#d85883] hover:shadow-[0_0_15px_rgba(240,98,146,0.5)];
+}
+
+.input {
+  /* Garis tepi form saat di-klik (focus) diubah jadi Pink Shade 300 */
+  @apply w-full rounded-xl border border-zinc-700 bg-zinc-900/90 px-4 py-3 text-white outline-none transition-colors focus:border-[#F06292];
+}
+
+.table-wrap {
+  @apply overflow-hidden rounded-2xl border border-zinc-800 bg-black/70 backdrop-blur;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(240, 98, 146, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(240, 98, 146, 0.1) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* KEYFRAMES ANIMASI */
+@keyframes sweep-lights {
+  0% {
+    background-position: -120% 0%, 120% 0%, -140% 0%;
+  }
+  100% {
+    background-position: 140% 0%, -120% 0%, 160% 0%;
+  }
+}
+
+@keyframes grid-slide {
+  0% {
+    transform: perspective(900px) rotateX(64deg) translateY(0) scale(1.18);
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    transform: perspective(900px) rotateX(64deg) translateY(54px) scale(1.18);
+    background-position: 0 54px, 0 54px;
+  }
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
