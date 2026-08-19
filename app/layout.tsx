@@ -2,7 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Night Runner Order System',
+  title: 'Pink Panther Marketplace',
   description: 'Order-only platform with admin panel',
 };
 
