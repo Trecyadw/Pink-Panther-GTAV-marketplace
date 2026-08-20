@@ -7,7 +7,7 @@ export async function getProducts(req, res) {
     FROM products p
     LEFT JOIN categories c ON c.id = p.category_id
     WHERE p.is_active = 1
-    ORDER BY p.gang ASC, c.name ASC, p.item_class ASC, p.name ASC
+    ORDER BY gang ASC, c.name ASC, p.item_class ASC, p.name ASC
   `);
   return res.json(rows);
 }
@@ -17,7 +17,7 @@ export async function getAdminProducts(req, res) {
     SELECT p.*, c.name AS category_name
     FROM products p
     LEFT JOIN categories c ON c.id = p.category_id
-    ORDER BY p.gang ASC, c.name ASC, p.item_class ASC, p.name ASC
+    ORDER BY gang ASC, c.name ASC, p.item_class ASC, p.name ASC
   `);
   return res.json(rows);
 }
